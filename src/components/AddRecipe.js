@@ -8,69 +8,70 @@
 //notes
 //author
 //button to submit/post
-
-// export default AddRecipe;
-// import React, { useState, useEffect } from "react";
-// const AddRecipe = props => {
-//     return (
-//         <div className="add-recipe-form">
-//             <p>This will be the recipe form!</p>
-//         </div>
-//     );
-    
-// }
-
-// export default AddRecipe;
-import React from 'react';
+import React, {UseState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   root: {
-    minWidth: 275,
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200,
+    },
   },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
-  },
-});
+}));
 
 export default function AddRecipe() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const [value, setValue] = React.useState('Controlled');
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
 
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
-        </Typography>
-        <Typography variant="h5" component="h2">
-          be{bull}nev{bull}o{bull}lent
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
-        </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
-    </Card>
+    <form className={classes.root} noValidate autoComplete="off">
+      <div>
+        <TextField
+          id="outlined-multiline-static"
+          label="Title"
+          multiline
+          rows="4"
+          defaultValue="Default Value"
+          variant="outlined"
+        />
+      </div>
+      <div>
+        <TextField
+          id="outlined-multiline-static"
+          label="Description"
+          multiline
+          rows="4"
+          defaultValue="Enter Description"
+          variant="outlined"
+        />
+      </div>
+      <div>
+        <TextField
+          id="outlined-multiline-static"
+          label="Ingredients"
+          multiline
+          rows="4"
+          defaultValue="Enter Ingredients"
+          variant="outlined"
+        />
+      </div>
+    
+      <div>
+        <TextField
+          id="outlined-multiline-static"
+          label="Directions"
+          multiline
+          rows="4"
+          defaultValue="Enter Directions"
+          variant="outlined"
+        />
+      </div>
+    </form>
   );
 }
