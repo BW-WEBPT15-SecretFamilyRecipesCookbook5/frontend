@@ -1,14 +1,5 @@
-
-//basic form
-//recipe_image
-//title
-//description
-//ingredients- list
-//directions
-//notes
-//author
-//button to submit/post
-import React, {UseState} from 'react';
+ 
+import React, {UseState, useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';

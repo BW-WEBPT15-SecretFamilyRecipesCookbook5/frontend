@@ -13,14 +13,11 @@ import SearchBar from "./components/SearchBar"
 function App() {
   return (
     <div className="App">
-
       <Header />
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>
-      <SearchBar />
-      <br></br>
-      <AddRecipe />
-
+      <Route exact path='/searchbar' component={SearchBar}/>
+      <Route exact path='/addrecipe' component={AddRecipe}/>
     </div>
   );
 }

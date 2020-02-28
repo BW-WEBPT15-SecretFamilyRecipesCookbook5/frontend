@@ -1,13 +1,16 @@
 //search for recipe by title
 import React from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import Popper from '@material-ui/core/Popper';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,21 +68,46 @@ const useStyles = makeStyles(theme => ({
 export default function SearchBar() {
   const classes = useStyles();
 
+// const handleClick = e => {e.preventDefault()
+//     browserHistory.push('/login')};
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-          >
-            <MenuIcon />
-          </IconButton>
+            > */}
+            
+            {/* <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                <Paper>
+                  <ClickAwayListener onClickAway={handleClose}>
+                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                      <MenuItem onClick={handleClose}>Profile</MenuItem>
+                      <MenuItem onClick={handleClose}>My account</MenuItem>
+                      <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper> */}
+          {/* </IconButton>
+            <MenuIcon /> */}
+    
           <Typography className={classes.title} variant="h6" noWrap>
             Secret Recipes
           </Typography>
+          < Typography className={classes.login} variant="h6" noWrap>
+              <Link to = "/login">Login</Link>
+         </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
