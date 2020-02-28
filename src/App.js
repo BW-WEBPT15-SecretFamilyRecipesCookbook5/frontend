@@ -1,12 +1,15 @@
 import React from 'react';
 import Login from './components/Login';
-import {Route} from 'react-router-dom';
+import Register from './components/Register';
+import Header from './components/header';
+import {Route, Link} from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <Route exact path='/login' component={Login}/>
-      {/* <Route exact path='/login' component={Register}/> */}
+      <Route exact path='/register' component={Register}/>
     </div>
   );
 }

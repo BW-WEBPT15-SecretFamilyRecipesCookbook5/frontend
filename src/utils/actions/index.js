@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const LOGIN_START = 'LOGIN_START'
 export const HANDLE_CHANGE = 'HANDLE_CHANGE'
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 
 export const login = (e, credentials) => dispatch => {
     e.preventDefault()
@@ -9,7 +10,7 @@ export const login = (e, credentials) => dispatch => {
     axios
         .post('api url here', credentials)
         .then(res => {
-            dispatch({ payload: res.data })
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data })
         })
         .catch(err=>console.log(err))
 }
