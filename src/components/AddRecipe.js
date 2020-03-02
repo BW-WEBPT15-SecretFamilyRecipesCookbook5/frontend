@@ -15,88 +15,87 @@ const RecipeForm = ({ touched, errors, status }) => {
     return (
       <div className="recipe-form">
         <Form>
-        <label>
-            Title:
-            <Field type="text" name="title" placeholder="title" />
-          </label>
-          <label>
-            Author:
-            <Field type="text" name="author" placeholder="author" />
-          </label>
-          <label>
-            Description:
-            <Field type="text" name="description" placeholder="description" />
-            {touched.description && errors.description && (
-              <p className="errors">{errors.description}</p>
-            )}
-          </label>
-          <label>
-            Ingredients:
-            <Field type="text" name="ingredients" placeholder="ingredients" />
-          </label>
-          <label>
-            Directions:
-            <Field type="text" name="directions" placeholder="directions" />
-          </label>
-          <label>
-            Category:
-            <Field component="select" className="category-select" name="category">
-              <option>Choose an Option</option>
-              <option value="appetizer">Appetizer</option>
-              <option value="entree">Entree</option>
-              <option value="dessert">Dessert</option>
-              <option value="side">Side</option>
-            </Field>
-          </label>
-          <br></br>
-          <label>
-            Notes:
-            <Field as="textarea" type="text" name="notes" placeholder="Notes" />
-          </label>
-          <button>Save Recipe</button>
+            <label>
+                Title:
+                <Field type="text" name="title" placeholder="title" />
+            </label>
+            <label>
+                Author:
+                <Field type="text" name="author" placeholder="author" />
+            </label>
+            <label>
+                Description:
+                <Field type="text" name="description" placeholder="description" />
+                {touched.description && errors.description && (
+                <p className="errors">{errors.description}</p>
+                )}
+            </label>
+            <label>
+                Ingredients:
+                <Field type="text" name="ingredients" placeholder="ingredients" />
+            </label>
+            <label>
+                Directions:
+                <Field type="text" name="directions" placeholder="directions" />
+            </label>
+            <label>
+                Category:
+                <Field component="select" className="category-select" name="category">
+                <option>Choose an Option</option>
+                <option value="appetizer">Appetizer</option>
+                <option value="entree">Entree</option>
+                <option value="dessert">Dessert</option>
+                <option value="side">Side</option>
+                </Field>
+            </label>
+            <br></br>
+            <label>
+                Notes:
+                <Field as="textarea" type="text" name="notes" placeholder="Notes" />
+            </label>
+            <button>Save Recipe</button>
         </Form>
         {recipe.title && (
-          <ul key={recipe.id}>
-            <li>Title: {recipe.title}</li>
-            <li>Author: {recipe.size}</li>
-            <li>Description: {recipe.description}</li>
-            <li>Ingredients: {recipe.ingredients}</li>
-            <li>Directions: {recipe.directions}</li>
-            <li>Category: {recipe.category}</li>
-            <li>Notes: {recipe.notes}</li>
-          </ul>
+            <ul key={recipe.id}>
+                <li>Title: {recipe.title}</li>
+                <li>Author: {recipe.size}</li>
+                <li>Description: {recipe.description}</li>
+                <li>Ingredients: {recipe.ingredients}</li>
+                <li>Directions: {recipe.directions}</li>
+                <li>Category: {recipe.category}</li>
+                <li>Notes: {recipe.notes}</li>
+            </ul>
         )}
-      </div>
+        </div>
     );
-  };
-  
+    };
 const FormikRecipeForm = withFormik({
     mapPropsToValues: props => ({
-      title: props.title || "",
-      author: "",
-      description: "",
-      ingredients: "",
-      directions: "",
-      category: "",
-      notes: ""
+        title: props.title || "",
+        author: "",
+        description: "",
+        ingredients: "",
+        directions: "",
+        category: "",
+        notes: ""
     }),
     validationSchema: yup.object().shape({
-      species: yup
+        species: yup
         .string()
         .required("This is the recipe field and it is required!")
     }),
     handleSubmit: (values, { resetForm, setStatus }) => {
       // console.log("Submitting!", formikBag)
       // POST body === {}
-      axios
+        axios
         // .post("https://reqres.in/api/users/", values)
         .then(response => {
-          console.log(response);
-          setStatus(response.data);
-          resetForm();
+            console.log(response);
+            setStatus(response.data);
+            resetForm();
         })
         .catch(err => console.log(err.response));
     }
-  })(RecipeForm);
+    })(RecipeForm);
 
 export default FormikRecipeForm;

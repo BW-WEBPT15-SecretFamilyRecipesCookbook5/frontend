@@ -2,6 +2,44 @@
 import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
 
+const cake = [
+    "vanilla",
+    "chocolate",
+    "funfetti"
+]
+
+function SearchBar() {
+    const [searchTerm, setSearchTerm] = React.useState("");
+
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    };
+
+    let results = cake;
+    if(searchTerm) {
+        results = cake.filter(poke =>
+            poke.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+
+return (
+    <div className= "SearchBar">
+        <input
+            type="text"
+            placeholder= "Search"
+            value= {searchTerm}
+            onChange={handleChange} 
+        />
+        <ul>
+            {results.map(cake => (
+                <li> {cake}</li>
+            ))}
+        </ul>
+    </div>
+    );
+}
+
+export default SearchBar;
 
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -66,47 +104,6 @@ import {BrowserRouter} from 'react-router-dom';
 //     },
 //   },
 // }));
-
-const cake = [
-    "vanilla",
-    "chocolate",
-    "funfetti"
-]
-
-function SearchBar() {
-    const [searchTerm, setSearchTerm] = React.useState("");
-
-    const handleChange = event => {
-        setSearchTerm(event.target.value);
-    };
-
-    let results = cake;
-    if(searchTerm) {
-        results = cake.filter(poke =>
-            poke.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    }
-
-return (
-    <div className= "SearchBar">
-        <input
-            type="text"
-            placeholder= "Search"
-            value= {searchTerm}
-            onChange={handleChange} 
-        />
-        <ul>
-            {results.map(cake => (
-                <li> {cake}</li>
-            ))}
-        </ul>
-    </div>
-    );
-}
-
-export default SearchBar;
-
-
 
 
   //material UI if we can figure out
