@@ -95,6 +95,7 @@ const FormikRecipeForm = withFormik({
         .then(response => {
             console.log(response);
             setStatus(response.data);
+            //navigate to dashboard
             resetForm();
         })
         .catch(err => console.log(err.response));
