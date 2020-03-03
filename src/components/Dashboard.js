@@ -10,15 +10,10 @@ function Dashboard() {
     return (
         <div><SearchBar/>
         <div className= "Dashboard">
-            <Form>
-                <label>
-                     Mac and Cheese
-                </label>
-                <br></br>
-                <label>
-                    All the cheese!
-                </label>
-            </Form> 
+            <div className="recipe-card">
+                <h2>Mac and Cheese</h2>
+                <p>ALL the yummy cheese!!</p>
+            </div>
         </div>
         <Link to='/addrecipe'>Add Recipe</Link>
         </div>
