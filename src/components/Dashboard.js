@@ -21,8 +21,8 @@ const Dashboard = props => {
         return [
             {
                 title: "Stir Fry",
-                author: "KK DeVuyst",
-                description: "So yummy",
+                author: " KK DeVuyst",
+                description: " So yummy",
                 ingredients: "",
                 directions: "",
                 category: "",
@@ -30,8 +30,8 @@ const Dashboard = props => {
             },
             {
                 title: "Brownies",
-                author: "Rory",
-                description: "so sweet!",
+                author: " Rory",
+                description: " So sweet!",
                 ingredients: "",
                 directions: "",
                 category: "",
@@ -55,15 +55,15 @@ const Dashboard = props => {
     console.log(recipes);
     return (
         <div><SearchBar/>
-        <div className= "Dashboard">
+        <div className= "dashboard">
             {recipes.map(recipe => (
-                <Card>
-                <CardBody>
+                <Card style= {{ width: '18rem'}}>
+                <CardBody className= "cardBody">
                   <CardHeader>{recipe.title}</CardHeader>
                     <CardText>Author:{recipe.author}</CardText>
                     <CardText>Description:{recipe.description}</CardText>
-                    <button>Edit</button>
-                    <button>Delete</button>
+                    <StyledButton className='edit-button' type='submit' varient='outlined'>Edit</StyledButton>
+                    <StyledButton className='delete-button' type='submit' varient='outlined'>Delete</StyledButton>
                 </CardBody>
               </Card>
             ))}

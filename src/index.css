@@ -105,6 +105,17 @@ textarea {
   color:#388087;
   border: 2px solid #81D2C7;
 }
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  border: 2px solid black;
+}
+.cardBody{
+  margin: 1em;
+  padding: 2em;
+  border: 5px solid grey;
+}
 button {
   max-width: 150px;
   margin: 32px 0;
