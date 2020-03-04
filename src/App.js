@@ -12,6 +12,9 @@ import Dashboard from "./components/Dashboard"
 function App() {
   return (
     <div className="App">
+      <div>
+        <Link to='/dashboard'>Dashboard</Link>
+      </div>
       <Header />
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>

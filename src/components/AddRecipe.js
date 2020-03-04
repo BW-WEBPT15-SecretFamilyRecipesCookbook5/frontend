@@ -87,7 +87,7 @@ const FormikRecipeForm = withFormik({
         .string()
         .required("This is the recipe field and it is required!")
     }),
-    handleSubmit: (values, { resetForm, setStatus }) => {
+    handleSubmit: (values, { handleReset, setStatus }) => {
       // console.log("Submitting!", formikBag)
       // POST body === {}
         axios
@@ -96,7 +96,7 @@ const FormikRecipeForm = withFormik({
             console.log(response);
             setStatus(response.data);
             //navigate to dashboard
-            resetForm();
+            // resetForm();
         })
         .catch(err => console.log(err.response));
     }
