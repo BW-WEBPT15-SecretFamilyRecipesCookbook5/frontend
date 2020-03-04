@@ -5,19 +5,71 @@ import { withFormik, Form, Field } from "formik";
 import SearchBar from "./SearchBar"
 import {Route, Link} from 'react-router-dom';
 import AddRecipe from "./AddRecipe"
+import { Card, CardHeader, CardBody, CardSubtitle, CardText } from "reactstrap";
 
-function Dashboard() {
+const Dashboard = props => {
+
+    //for when api is ready
+    const [recipes, setRecipes] = useState ([])
+  
+    useEffect(() => {
+      // 2 TODO: Add API Request here - must run in `useEffect`
+      //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+      const getRecipes = () => {
+        return [
+            {
+                title: "Stir Fry",
+                author: "KK DeVuyst",
+                description: "So yummy",
+                ingredients: "",
+                directions: "",
+                category: "",
+                notes: ""
+            },
+            {
+                title: "Brownies",
+                author: "Rory",
+                description: "so sweet!",
+                ingredients: "",
+                directions: "",
+                category: "",
+                notes: ""
+            }
+        ];
+        // axios
+        //   .get('')
+        //   .then(response => {
+        //     // NEED TO PASS AN ARRAY AND NOT AN OBJECT
+        //     setRecipes(response.data.results);
+        //   })
+        //   .catch(error => {
+        //     console.error('Server Error', error);
+        //   });
+        }
+        // getRecipes();
+        setRecipes(getRecipes);
+    }, []);
+    
+    console.log(recipes);
     return (
         <div><SearchBar/>
         <div className= "Dashboard">
-            <div className="recipe-card">
-                <h2>Mac and Cheese</h2>
-                <p>ALL the yummy cheese!!</p>
-            </div>
+            {recipes.map(recipe => (
+                <Card>
+                <CardBody>
+                  <CardHeader>{recipe.title}</CardHeader>
+                    <CardText>Author:{recipe.author}</CardText>
+                    <CardText>Description:{recipe.description}</CardText>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </CardBody>
+              </Card>
+            ))}
         </div>
         <Link to='/addrecipe'>Add Recipe</Link>
         </div>
     );
+
 }
 
 export default Dashboard;
