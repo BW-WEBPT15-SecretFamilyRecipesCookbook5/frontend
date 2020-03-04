@@ -15,7 +15,7 @@ const Register = () => {
     }
 
     return (
-        <div className='register-container'>
+        <div className='login-container'>
             <h2>Register</h2>
             <form>
                 <div className='register-form'>

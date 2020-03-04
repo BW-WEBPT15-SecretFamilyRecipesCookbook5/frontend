@@ -5,6 +5,7 @@ import { withFormik, Form, Field } from "formik";
 import SearchBar from "./SearchBar"
 import {Route, Link} from 'react-router-dom';
 import AddRecipe from "./AddRecipe"
+import { StyledButton } from '../utils/styles';
 
 function Dashboard() {
     return (
@@ -15,7 +16,7 @@ function Dashboard() {
                 <p>ALL the yummy cheese!!</p>
             </div>
         </div>
-        <Link to='/addrecipe'>Add Recipe</Link>
+        <Link to='/addrecipe'><StyledButton>Add Recipe</StyledButton></Link>
         </div>
     );
 }

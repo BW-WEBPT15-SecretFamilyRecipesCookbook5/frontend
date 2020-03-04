@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup"; 
+import { AddButton } from '../utils/styles'
 
 const RecipeForm = ({ touched, errors, status }) => {
    
@@ -56,7 +57,7 @@ const RecipeForm = ({ touched, errors, status }) => {
                 Notes:
                 <Field as="textarea" type="text" name="notes" placeholder="Notes" />
             </label>
-            <button>Save Recipe</button>
+            <AddButton>Save Recipe</AddButton>
         </Form>
         {recipe.title && (
             <ul key={recipe.id}>

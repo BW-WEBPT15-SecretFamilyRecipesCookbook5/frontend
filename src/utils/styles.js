@@ -5,8 +5,20 @@ export const StyledButton = withStyles({
     root: {
         margin: '10px',
         height: '50px',
+        background: 'white',
         '&:hover': {
-            background: 'rgb(15, 200, 170)'
+            background: '#7389AE'
+        }
+    }
+})(Button);
+
+export const AddButton = withStyles({
+    root: {
+        margin: '10px',
+        height: '50px',
+        background: 'white',
+        '&:hover': {
+            background: '#7389AE'
         }
     }
 })(Button);
