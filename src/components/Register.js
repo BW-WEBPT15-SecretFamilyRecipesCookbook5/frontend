@@ -15,20 +15,41 @@ const Register = () => {
     }
 
     return (
-        <div className='register-container'>
+        <div className='login-container'>
             <h2>Register</h2>
             <form>
                 <div className='register-form'>
                     <TextField
                         type='text'
-                        label='Username'
-                        name='username'
+                        label='First Name'
+                        name='name'
                         value={username}
                         onChange={handleUsernameChange}
                     />
                     <TextField  
+                        type='text'
+                        label='Last Name'
+                        name='lName'
+                        value={password}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
+                        type='text'
+                        label='Username'
+                        name='username'
+                        value={username}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
                         type='password'
                         label='Password'
+                        name='password'
+                        value={password}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
+                        type='password'
+                        label='Confirm Password'
                         name='password'
                         value={password}
                         onChange={handlePasswordChange}

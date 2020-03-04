@@ -15,11 +15,11 @@ code {
 a {
   text-decoration: none;
   color: black;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 a:hover {
-  color: rgb(15, 200, 170);
+  color: #E0E0E2;
 }
 
 .header-container {
@@ -31,7 +31,8 @@ a:hover {
 .navbar {
   display: flex;
   align-self: center;
-  margin-bottom: 100px;
+  padding: 20px;
+  background-color: #81D2C7;
 }
 
 .navbar>* {
@@ -39,7 +40,17 @@ a:hover {
 }
 
 .login-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   text-align: center;
+  margin-top: 200px;
+  width: 30%;
+  padding: 1em;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #81D2C7;
+  box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-form {
@@ -49,8 +60,11 @@ a:hover {
   width: 40%;
 }
 
-.register-container {
-  text-align: center;
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .register-form {
@@ -66,8 +80,9 @@ a:hover {
   padding: 1em;
   border-radius: 10px;
   font-weight: bold;
-  background-color: #c2edce;
+  background-color: #81D2C7;
   box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 .image {
   width: auto;
@@ -88,7 +103,7 @@ textarea {
   width: 90%;
   display: block;
   color:#388087;
-  border: 2px solid #6fb3b8;
+  border: 2px solid #81D2C7;
 }
 button {
   max-width: 150px;

@@ -52,6 +52,7 @@ import { connect } from 'react-redux';
 import {handleChange, login} from '../utils/actions';
 import TextField from '@material-ui/core/TextField';
 import { StyledButton } from '../utils/styles';
+import { Link } from 'react-router-dom';
 
 const Login = ({login, loginCredentials, handleChange}) => {
     const [username, setUsername] = useState('')
@@ -88,7 +89,10 @@ const Login = ({login, loginCredentials, handleChange}) => {
                         onChange={handlePasswordChange}
                     />
                 </div>
-                <StyledButton className='login-button' type='submit' varient='outlined'>Sign In</StyledButton>
+                <div className='login-buttons'>
+                    <StyledButton className='login-button' type='submit' varient='outlined'>Sign In</StyledButton>
+                    <Link to='/register'>Don't have an account? Create one!</Link>
+                </div>
             </form>
         </div>
     )
