@@ -21,14 +21,35 @@ const Register = () => {
                 <div className='register-form'>
                     <TextField
                         type='text'
-                        label='Username'
-                        name='username'
+                        label='First Name'
+                        name='name'
                         value={username}
                         onChange={handleUsernameChange}
                     />
                     <TextField  
+                        type='text'
+                        label='Last Name'
+                        name='lName'
+                        value={password}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
+                        type='text'
+                        label='Username'
+                        name='username'
+                        value={username}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
                         type='password'
                         label='Password'
+                        name='password'
+                        value={password}
+                        onChange={handlePasswordChange}
+                    />
+                    <TextField  
+                        type='password'
+                        label='Confirm Password'
                         name='password'
                         value={password}
                         onChange={handlePasswordChange}

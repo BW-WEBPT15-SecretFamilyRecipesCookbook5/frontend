@@ -60,6 +60,13 @@ a:hover {
   width: 40%;
 }
 
+.login-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .register-form {
   display: flex;
   flex-direction: column;

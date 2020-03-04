@@ -13,9 +13,8 @@ function App() {
   return (
     <div className="App">
       <div class='navbar'>
-        <Link to='/dashboard'>Dashboard</Link>
+        <Link to='/dashboard'>Recipes</Link>
         <Link to='/login'>Login</Link>
-        <Link to='/register'>Register</Link>
       </div>
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>
