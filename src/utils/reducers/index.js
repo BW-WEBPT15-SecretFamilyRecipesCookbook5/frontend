@@ -1,8 +1,9 @@
-import { LOGIN_START, HANDLE_CHANGE, LOGIN_SUCCESS } from '../actions'
+import { LOGIN_START, HANDLE_CHANGE, LOGIN_SUCCESS, REGISTER_START, REGISTER_SUCCESS } from '../actions'
 
 const initialState = {
     loginCredentials: {},
-    isLoggingIn: false
+    isLoggingIn: false,
+    isRegistering: false
 }
 
 export const recipeReducer = (state = initialState, action) => {
@@ -22,6 +23,16 @@ export const recipeReducer = (state = initialState, action) => {
             localStorage.setItem('token', token)
             return {
                 ...state,
+                isLoggingIn: false
+            }
+        case REGISTER_START:
+            return {
+                isRegistering: true
+            }
+        case REGISTER_SUCCESS:
+            return {
+                ...state,
+                isRegistering: false
             }
     }
 }
