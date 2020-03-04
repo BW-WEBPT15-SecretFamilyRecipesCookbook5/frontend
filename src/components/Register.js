@@ -20,20 +20,23 @@ const Register = () => {
             <form>
                 <div className='register-form'>
                     <TextField
+                        required
                         type='text'
                         label='First Name'
                         name='name'
                         value={username}
                         onChange={handleUsernameChange}
                     />
-                    <TextField  
+                    <TextField 
+                        required 
                         type='text'
                         label='Last Name'
                         name='lName'
                         value={password}
                         onChange={handlePasswordChange}
                     />
-                    <TextField  
+                    <TextField      
+                        required
                         type='text'
                         label='Username'
                         name='username'
@@ -41,6 +44,7 @@ const Register = () => {
                         onChange={handlePasswordChange}
                     />
                     <TextField  
+                        required
                         type='password'
                         label='Password'
                         name='password'
@@ -48,6 +52,7 @@ const Register = () => {
                         onChange={handlePasswordChange}
                     />
                     <TextField  
+                        required
                         type='password'
                         label='Confirm Password'
                         name='password'
@@ -55,7 +60,7 @@ const Register = () => {
                         onChange={handlePasswordChange}
                     />
                 </div>
-                <StyledButton>Sign Up</StyledButton>
+                <StyledButton type='submit'>Sign Up</StyledButton>
             </form>
         </div>
     )

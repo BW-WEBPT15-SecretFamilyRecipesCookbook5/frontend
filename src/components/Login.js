@@ -75,6 +75,7 @@ const Login = ({login, loginCredentials, handleChange}) => {
             >
                 <div className='login-form'>
                     <TextField
+                        required
                         type='text'
                         label='Username'
                         name='username'
@@ -82,6 +83,7 @@ const Login = ({login, loginCredentials, handleChange}) => {
                         onChange={handleUsenameChange}
                     />
                     <TextField
+                        required
                         type='password'
                         label='password'
                         name='password'
