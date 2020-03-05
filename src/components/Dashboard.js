@@ -18,38 +18,39 @@ const Dashboard = props => {
       // 2 TODO: Add API Request here - must run in `useEffect`
       //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
       const getRecipes = () => {
-        return [
-            {
-                title: "Stir Fry",
-                author: " KK DeVuyst",
-                description: " So yummy",
-                ingredients: "",
-                directions: "",
-                category: "",
-                notes: ""
-            },
-            {
-                title: "Brownies",
-                author: " Rory",
-                description: " So sweet!",
-                ingredients: "",
-                directions: "",
-                category: "",
-                notes: ""
-            }
-        ];
-        // axios
-        //   .get('')
-        //   .then(response => {
-        //     // NEED TO PASS AN ARRAY AND NOT AN OBJECT
-        //     setRecipes(response.data.results);
-        //   })
-        //   .catch(error => {
-        //     console.error('Server Error', error);
-        //   });
+        // return [
+            // {
+            //     title: "Stir Fry",
+            //     author: " KK DeVuyst",
+            //     description: " So yummy",
+            //     ingredients: "",
+            //     directions: "",
+            //     category: "",
+            //     notes: ""
+            // },
+            // {
+            //     title: "Brownies",
+            //     author: " Rory",
+            //     description: " So sweet!",
+            //     ingredients: "",
+            //     directions: "",
+            //     category: "",
+            //     notes: ""
+            // }
+        // ];
+        axios
+          .get('https://safe-peak-28764.herokuapp.com/api/users/3/recipes')
+          .then(response => {
+                console.log(response.data);
+            // NEED TO PASS AN ARRAY AND NOT AN OBJECT
+            setRecipes(response.data.results);
+          })
+          .catch(error => {
+            console.error('Server Error', error);
+          });
         }
-        // getRecipes();
-        setRecipes(getRecipes);
+        getRecipes();
+        // setRecipes(getRecipes);
     }, []);
     
     console.log(recipes);
@@ -59,9 +60,9 @@ const Dashboard = props => {
             {recipes.map(recipe => (
                 <Card style= {{ width: '18rem'}}>
                 <CardBody className= "cardBody">
-                  <CardHeader>{recipe.title}</CardHeader>
+                <CardHeader>{recipe.title}</CardHeader>
                     <CardText>Author:{recipe.author}</CardText>
-                    <CardText>Description:{recipe.description}</CardText>
+                    <CardText>Instructions:{recipe.instructions}</CardText>
                     <StyledButton className='edit-button' type='submit' varient='outlined'>Edit</StyledButton>
                     <StyledButton className='delete-button' type='submit' varient='outlined'>Delete</StyledButton>
                 </CardBody>
