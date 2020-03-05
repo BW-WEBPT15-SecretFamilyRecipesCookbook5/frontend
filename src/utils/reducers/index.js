@@ -1,29 +1,39 @@
-import { LOGIN_START, HANDLE_CHANGE, LOGIN_SUCCESS, REGISTER_START, REGISTER_SUCCESS } from '../actions'
+import { LOGIN_START, HANDLE_CHANGE, LOGIN_SUCCESS, REGISTER_START, REGISTER_SUCCESS, GET_RECIPE } from '../actions'
 
 const initialState = {
-    loginCredentials: {},
+    loginCredentials: {
+        password: '',
+        username: ''
+    },
+    registerCredentials: {},
     isLoggingIn: false,
-    isRegistering: false
+    isRegistering: false,
+    loggedIn: false
 }
 
-export const recipeReducer = (state = initialState, action) => {
+export const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case LOGIN_START:
             return {
                 ...state,
-                isLogginIn: true,
-            }
-        // case HANDLE_CHANGE:
-        //     return {
-        //         ...state,
-        //         [payload.target.name]: payload.target.value
-        //         }
+                isLoggingIn: true,
+            }        
         case LOGIN_SUCCESS:
             const token = ''
             localStorage.setItem('token', token)
             return {
                 ...state,
-                isLoggingIn: false
+                isLoggingIn: false,
+                loggedIn: true,
+                loginCredentials: action.payload
+            }
+        case HANDLE_CHANGE:
+            return {
+                ...state,
+                [action.payload.form]:
+                {
+                [action.payload.target.name]: action.payload.target.value
+                }
             }
         case REGISTER_START:
             return {
