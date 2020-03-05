@@ -1,10 +1,7 @@
 import { LOGIN_START, HANDLE_CHANGE, LOGIN_SUCCESS, REGISTER_START, REGISTER_SUCCESS, GET_RECIPE } from '../actions'
 
 const initialState = {
-    loginCredentials: {
-        password: '',
-        username: ''
-    },
+    loginCredentials: {},
     registerCredentials: {},
     isLoggingIn: false,
     isRegistering: false,
@@ -44,5 +41,7 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 isRegistering: false
             }
+        default: 
+            return state
     }
 }
