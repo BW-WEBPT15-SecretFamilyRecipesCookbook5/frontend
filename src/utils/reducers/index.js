@@ -16,13 +16,12 @@ export const rootReducer = (state = initialState, action) => {
                 isLoggingIn: true,
             }        
         case LOGIN_SUCCESS:
-            const token = ''
+            const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJ'
             localStorage.setItem('token', token)
             return {
                 ...state,
                 isLoggingIn: false,
                 loggedIn: true,
-                loginCredentials: action.payload
             }
         case HANDLE_CHANGE:
             return {
