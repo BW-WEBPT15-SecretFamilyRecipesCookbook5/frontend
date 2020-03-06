@@ -1,63 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { StyledButton } from '../utils/styles';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux'
+import { handleChange, register } from '../utils/actions'
 
-const Register = () => {
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+const Register = ({ register, registerCredentials, handleChange, loggedIn, token, history}) => {
 
-    const handleUsernameChange = e => {
-        setUsername(e.target.value)
-    }
-
-    const handlePasswordChange = e => {
-        setPassword(e.target.value)
-    }
+    useEffect(()=> {
+        if(loggedIn){
+          localStorage.setItem('token', token);
+          history.push('/Dashboard')
+        }
+      } ,[loggedIn])
 
     return (
         <div className='login-container'>
             <h2>Register</h2>
-            <form>
+            <form onSubmit={(e)=>{
+          register(e, registerCredentials)
+        }}>
                 <div className='register-form'>
-                    <TextField
-                        required
-                        type='text'
-                        label='First Name'
-                        name='name'
-                        value={username}
-                        onChange={handleUsernameChange}
-                    />
-                    <TextField 
-                        required 
-                        type='text'
-                        label='Last Name'
-                        name='lName'
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
                     <TextField      
                         required
                         type='text'
                         label='Username'
                         name='username'
-                        value={username}
-                        onChange={handlePasswordChange}
+                        value={registerCredentials.username}
+                        onChange={e=>handleChange(e, 'registerCredentials')}
                     />
                     <TextField  
                         required
                         type='password'
                         label='Password'
                         name='password'
-                        value={password}
-                        onChange={handlePasswordChange}
-                    />
-                    <TextField  
-                        required
-                        type='password'
-                        label='Confirm Password'
-                        name='password'
-                        value={password}
-                        onChange={handlePasswordChange}
+                        value={registerCredentials.password}
+                        onChange={e=>handleChange(e, 'registerCredentials')}
                     />
                 </div>
                 <StyledButton type='submit'>Sign Up</StyledButton>
@@ -66,4 +43,13 @@ const Register = () => {
     )
 }
 
-export default Register;
+const mapStateToProps = state => {
+    return {
+        registerCredentials: state.registerCredentials
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    { handleChange, register }
+)(Register);

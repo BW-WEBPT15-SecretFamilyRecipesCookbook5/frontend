@@ -16,4 +16,8 @@ const PrivateRoute = ({ component: Component, props }) => {
     );
 };
 
-export default PrivateRoute;
+const mapStateToProps = state => ({
+    loggedIn: state.loggedIn
+})
+
+export default connect(mapStateToProps,{}(PrivateRoute));

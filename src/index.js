@@ -5,19 +5,21 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { rootReducer } from './utils/reducers';
 import thunk from 'redux-thunk';
 // import * as serviceWorker from './serviceWorker';
 
+const history = createBrowserHistory();
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router history={history}>
             <App />
         </Router>
     </Provider>, rootElement);

@@ -38,7 +38,7 @@ export const rootReducer = (state = initialState, action) => {
         case REGISTER_SUCCESS:
             return {
                 ...state,
-                isRegistering: false
+                isRegistering: false,
             }
         default: 
             return state
