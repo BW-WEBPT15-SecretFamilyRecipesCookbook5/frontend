@@ -5,19 +5,21 @@ import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { recipeReducer } from './utils/reducers';
+import { rootReducer } from './utils/reducers';
 import thunk from 'redux-thunk';
 // import * as serviceWorker from './serviceWorker';
 
+const history = createBrowserHistory();
 
-const store = createStore(recipeReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
+        <Router history={history}>
             <App />
         </Router>
     </Provider>, rootElement);
@@ -26,3 +28,4 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 // serviceWorker.unregister();
+
