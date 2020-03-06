@@ -18,9 +18,6 @@ const RecipeForm = ({ touched, errors, status, history }) => {
     return (
       <div className="recipe-form">
         <Form>
-            {/* <div className="image">
-                <img src="img/recipe.jpg" alt="recipe"/>      
-            </div> */}
             <label>
                 Title:
                 <Field type="text" name="title" placeholder="title" />
@@ -106,6 +103,5 @@ const FormikRecipeForm = withFormik({
     }
     })(RecipeForm);
 
-    // Photo by Becca Tapert on Unsplash
 
 export default FormikRecipeForm;
