@@ -4,8 +4,10 @@ import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as yup from "yup"; 
 import { AddButton } from '../utils/styles'
+import { StyledButton } from '../utils/styles';
+// import { BrowserHistory } from 'react-router-dom';
 
-const RecipeForm = ({ touched, errors, status }) => {
+const RecipeForm = ({ touched, errors, status, history }) => {
    
     const [recipe, setRecipe] = useState({});
   
@@ -39,8 +41,8 @@ const RecipeForm = ({ touched, errors, status }) => {
                 <Field type="text" name="ingredients" placeholder="ingredients" />
             </label>
             <label>
-                Directions:
-                <Field type="text" name="directions" placeholder="directions" />
+                Instructions:
+                <Field type="text" name="instructions" placeholder="instructions" />
             </label>
             <label>
                 Category:
@@ -57,7 +59,7 @@ const RecipeForm = ({ touched, errors, status }) => {
                 Notes:
                 <Field as="textarea" type="text" name="notes" placeholder="Notes" />
             </label>
-            <AddButton>Save Recipe</AddButton>
+            <StyledButton className='saveRecipe-button' type='submit' varient='outlined'>Save Recipe</StyledButton>
         </Form>
         {recipe.title && (
             <ul key={recipe.id}>
@@ -65,7 +67,7 @@ const RecipeForm = ({ touched, errors, status }) => {
                 <li>Author: {recipe.size}</li>
                 <li>Description: {recipe.description}</li>
                 <li>Ingredients: {recipe.ingredients}</li>
-                <li>Directions: {recipe.directions}</li>
+                <li>Instructions: {recipe.instructions}</li>
                 <li>Category: {recipe.category}</li>
                 <li>Notes: {recipe.notes}</li>
             </ul>
@@ -79,7 +81,7 @@ const FormikRecipeForm = withFormik({
         author: "",
         description: "",
         ingredients: "",
-        directions: "",
+        instructions: "",
         category: "",
         notes: ""
     }),
@@ -92,11 +94,12 @@ const FormikRecipeForm = withFormik({
       // console.log("Submitting!", formikBag)
       // POST body === {}
         axios
-        // .post("https://reqres.in/api/users/", values)
+        // .post("https://safe-peak-28764.herokuapp.com/api/users/:user_id/recipes", values)
         .then(response => {
             console.log(response);
             setStatus(response.data);
             //navigate to dashboard
+            // history.push('/dashboard')
             // resetForm();
         })
         .catch(err => console.log(err.response));

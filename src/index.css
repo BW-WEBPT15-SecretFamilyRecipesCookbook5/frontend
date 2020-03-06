@@ -75,7 +75,7 @@ a:hover {
 }
 
 .recipe-form {
-  width: 65%;
+  width: 60%;
   margin:0 auto;
   padding: 1em;
   border-radius: 10px;
@@ -104,6 +104,23 @@ textarea {
   display: block;
   color:#388087;
   border: 2px solid #81D2C7;
+}
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  padding: 1em;
+  border: 2px solid black;
+}
+.cardBody {
+  display: flex;
+  flex-direction: row;
+  margin-top: 200px;
+  width: 30%;
+  padding: 1em;
+  border-radius: 10px;
+  margin: 0 auto;
+  border: 5px solid grey;
 }
 button {
   max-width: 150px;
