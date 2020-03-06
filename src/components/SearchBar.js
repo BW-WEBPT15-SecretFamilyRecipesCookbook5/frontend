@@ -1,6 +1,11 @@
 //search for recipe by title
-import React from 'react';
 import {BrowserRouter} from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import axios from "axios";
+// import { Card } from '@material-ui/core';
+import {Route, Link} from 'react-router-dom';
+import { StyledButton } from '../utils/styles';
+import { Card, CardHeader, CardBody, CardSubtitle, CardText } from "reactstrap";
 
 function SearchBar() {
     const [searchTerm, setSearchTerm] = React.useState("");

@@ -10,12 +10,7 @@ import { Card, CardHeader, CardBody, CardSubtitle, CardText } from "reactstrap";
 
 
 const Dashboard = props => {
-
-    //for when api is ready
-   
-    
-    console.log(recipes);
-    return (
+  return (
         <div><SearchBar/>
         <Link to='/addrecipe'><StyledButton>Add Recipe</StyledButton></Link>
         </div>
